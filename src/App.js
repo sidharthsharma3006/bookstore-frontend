@@ -7,7 +7,7 @@ function App() {
 
   // Fetch books from backend
   useEffect(() => {
-    fetch("http://localhost:8080/books")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/books`)
       .then((res) => res.json())
       .then((data) => setBooks(data))
       .catch((err) => console.error(err));
@@ -15,7 +15,7 @@ function App() {
 
   // Add book
   const addBook = () => {
-    fetch(`http://localhost:8080/books?title=${title}&author=${author}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/books?title=${title}&author=${author}`, {
       method: "POST",
     })
       .then(() => {
