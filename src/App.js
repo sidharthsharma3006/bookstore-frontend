@@ -7,6 +7,10 @@ function App() {
 
   // Fetch books from backend
   useEffect(() => {
+    console.log(
+        "Backend URL in frontend:",
+        process.env.REACT_APP_BACKEND_URL
+    );  
     fetch(`${process.env.REACT_APP_BACKEND_URL}/books`)
       .then((res) => res.json())
       .then((data) => setBooks(data))
